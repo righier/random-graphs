@@ -10,10 +10,11 @@ typedef uint32_t u32;
 typedef uint8_t u8;
 
 struct Edge {
-    int a, b, w;
+    int a, b;
+    float w;
 
     Edge() {}
-    Edge(int a, int b, int w): a(a), b(b), w(b) {}
+    Edge(int a, int b, int w): a(a), b(b), w(w) {}
 
     bool operator<(const Edge &other) {
         return w < other.w;
@@ -21,7 +22,7 @@ struct Edge {
 };
 
 class GraphGenerator {
-    public:
-        virtual bool hasNext() = 0;
-        virtual Edge next() = 0;
+public:
+    virtual bool hasNext() = 0;
+    virtual Edge next() = 0;
 };

@@ -4,6 +4,21 @@
 #include "utils.h"
 
 #include <cmath>
+#include <algorithm>
+#include <vector>
+
+
+std::vector<Edge> randomGraph(Random &rnd, int n, i64 m, float maxw) {
+	std::vector<Edge> edges;
+
+	i64 maxm = i64(n) * (i64(n)-1) / 2;
+	m = std::min(m, maxm);
+
+	double ilogp = 1.0 / std::log(1.0 - double(m) / double(maxm));
+	
+
+	return edges;
+}
 
 class RandomGraphGenerator: public GraphGenerator {
     int n, maxw;
@@ -12,7 +27,8 @@ class RandomGraphGenerator: public GraphGenerator {
 
 	int a, b;
 
-	RandomGraphGenerator(Random &rnd, int n, i64 m, int maxw):
+public:
+	RandomGraphGenerator(Random &rnd, int n, i64 m, float maxw):
 	n(n), maxw(maxw), rnd(rnd), a(0), b(0) {
 		i64 maxm = i64(n) * (i64(n)-1) / 2;
 		if (m > maxm) m = maxm;
@@ -25,7 +41,7 @@ class RandomGraphGenerator: public GraphGenerator {
 	}
 
 	Edge next() {
-		int weight = rnd.getInt(maxw);
+		float weight = rnd.getFloat() * maxw;
 		auto out = Edge(a, b, weight);
 		advance();
 		return out;

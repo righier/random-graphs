@@ -1,9 +1,11 @@
+#pragma once
+
 #include <stdint.h>
 #include "utils.h"
 
 
 struct Random {
-
+	
 	Random(u64 seed) {
 		s[0] = init(seed);
 		s[1] = init(seed);
