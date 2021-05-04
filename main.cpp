@@ -13,7 +13,8 @@ int main(int argc, char **argv) {
 
     timer.start();
     // auto edges = randomGraph(rnd, 60000, 1000000, 1.0);
-    auto edges = randomGeometricGraph(rnd, 10, 20, 1.0);
+    Edges edges = randomGeometricGraphFast(rnd, 5000, 2000, 100, false);
+    // Edges edges = randomGraphOneLong(rnd, 10, 40, 1.0);
 
     std::cout << "Edges generated " << timer.delta() << std::endl;
 
@@ -40,6 +41,10 @@ int main(int argc, char **argv) {
     std::cout << g2.size() << std::endl;
     std::cout << "Graph loaded " << timer.delta() << std::endl;
 
+
+    // for (Edge edge: edges2) {
+    //     std::cout << edge.a << " " << edge.b << " " << edge.w << std::endl;
+    // }
 
     return 0;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pos.h"
+
 #include <stdlib.h>
 #include <stdint.h>
 #include <limits.h>
@@ -28,6 +30,8 @@ struct Edge {
         return w < other.w;
     }
 };
+
+typedef std::vector<Edge> Edges;
 
 class GraphGenerator {
 public:
