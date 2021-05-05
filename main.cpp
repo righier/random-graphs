@@ -11,12 +11,19 @@ int main(int argc, char **argv) {
     auto rnd = Random(13);
     Timer timer;
 
-    timer.start();
+    int n = 100;
+    int m = 200;
     // auto edges = randomGraph(rnd, 60000, 1000000, 1.0);
-    Edges edges = randomGeometricGraphFast(rnd, 5000, 2000, 100, false);
+    timer.start();
+    Edges edges = randomGeometricGraphFast(rnd, n, m, 100, true, false);
+    std::cout << "Edges generated " << timer.delta() << std::endl;
+
     // Edges edges = randomGraphOneLong(rnd, 10, 40, 1.0);
 
+    timer.start();
+    // Edges edges3 = randomGeometricGraph(rnd, n, m, 10, false);
     std::cout << "Edges generated " << timer.delta() << std::endl;
+
 
 
     timer.start();
