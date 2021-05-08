@@ -10,7 +10,6 @@ struct Random {
 		s[0] = init(seed);
 		s[1] = init(seed);
 	}
-
 	u64 getUint64() {
 		return next();
 	}
